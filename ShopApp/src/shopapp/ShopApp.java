@@ -20,10 +20,10 @@ public class ShopApp {
 
         System.out.println("Welcome to Evelyn's Beauty Shop!");
 
-        Customer c1 = new Customer();
+        Customer c1 = new Customer("Pinky", 14);
 
-        c1.setName("Pinky");
-        c1.setSize("S");
+        //c1.setName("Pinky");
+        //c1.setSize("S");
 
         Clothing item1 = new Clothing();
         Clothing item2 = new Clothing();
@@ -55,7 +55,7 @@ public class ShopApp {
 
         c1.addItems(items);
 
-        c1.setSize(measurement);
+        //c1.setSize(measurement);
 
         System.out.println("Customer is " + c1.getName() + "," + c1.getSize() + "," + c1.getTotalClothingCost());
 
