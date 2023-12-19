@@ -25,6 +25,8 @@ public class ShopApp {
         //c1.setName("Pinky");
         //c1.setSize("S");
 
+        System.out.println("Min Price " + Clothing.MIN_PRICE);
+
         Clothing item1 = new Clothing("Blue Jacket", 20.9, "M");
         Clothing item2 = new Clothing("Orange T-Shirt", 10.5, "S");
 
