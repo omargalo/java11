@@ -5,7 +5,13 @@
 package shopapp;
 
 import java.util.Arrays;
-
+import io.helidon.webserver.Routing;
+import io.helidon.webserver.ServerConfiguration;
+import io.helidon.webserver.WebServer;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Omar
@@ -57,8 +63,19 @@ public class ShopApp {
 
         //int measurement = 8;
 
-        c1.addItems(items);
+        try {
+            ItemList list = new ItemList(items);
+            Routing routing = Routing.builder().get("/items", list).build();
+            ServerConfiguration config = ServerConfiguration.builder()
+            .bindAddress(InetAddress.getLocalHost())
+            .port(8888).build();
+            WebServer ws = WebServer.create(config, routing);
+            ws.start();
+        } catch (UnknownHostException ex) {
+            ex.printStackTrace();
+        }
 
+        c1.addItems(items);
         //c1.setSize(measurement);
 
         System.out.println("Customer is " + c1.getName() + "," + c1.getSize() + "," + c1.getTotalClothingCost());
