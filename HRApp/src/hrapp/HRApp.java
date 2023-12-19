@@ -15,6 +15,10 @@ public class HRApp {
      */
     public static void main(String[] args) {
         System.out.println("HR App Starts");
+        
+        Employee e1 = new Employee(230, "Evelyn", 47000);
+        
+        System.out.println("Employee: " + e1);
     }
     
 }
