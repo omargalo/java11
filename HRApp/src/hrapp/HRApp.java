@@ -16,9 +16,23 @@ public class HRApp {
     public static void main(String[] args) {
         System.out.println("HR App Starts");
         
-        Employee e1 = new Employee(230, "Evelyn", 47000);
+        Employee e1 = new Employee(100, "Evelyn", 47000);
+        Employee e2 = new Employee(101, "Omar", 44000);        
         
-        System.out.println("Employee: " + e1);
-    }
-    
+        Department dept = new Department("Education");
+        
+        dept.addEmp(e1);
+        dept.addEmp(e2);
+        dept.addEmp(new Employee(102, "Ender", 45000));
+        
+        Employee[] emps = dept.getEmployees();
+        
+        for (Employee emp : emps) {
+            System.out.println("Employee: " + emp);            
+        }
+        System.out.println("Total: " + dept.getTotalSalary());
+        System.out.println("Total: " + dept.getAverageSalary());
+        
+        System.out.println("Employee by ID: " + dept.getEmployeeById(102));
+    }    
 }
